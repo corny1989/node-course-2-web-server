@@ -1,10 +1,13 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-
 const port = process.env.PORT || 3000;
 
+var systeminfo = require('./systeminfo');
+
 var app = express();
+
+
 
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -59,12 +62,18 @@ res.render('home', {
 
 });
 
-
 app.get('/about', (req, res) => {
     res.render('about', {
         pageTitle: 'About Page',
 
     });
+});
+
+app.get('/systeminfo', (req, res) => {
+
+    var userSystemInfo = systeminfo.systeminfo();
+    res.render('systeminfo', userSystemInfo);
+
 });
 
 app.get('/bad', (req, res) => {
