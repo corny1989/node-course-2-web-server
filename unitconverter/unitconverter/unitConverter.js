@@ -9,7 +9,6 @@ var convertFahrenheitToCelsius = function(temperatureInF){
 
 var convertAndHumanizeSecondsToDuration = function (timeInSeconds) {
 
-    
     var timeAsDuration = moment.duration(timeInSeconds, 'seconds');
 
     var asHours = timeAsDuration.hours();
