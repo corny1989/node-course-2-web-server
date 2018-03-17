@@ -4,7 +4,7 @@ const unitConverter = require('./unitconverter/unitconverter/unitConverter')
 var systeminfo = function getSystemInfo() {
 
     var mySysteminfo = {
-    uptime: unitConverter.convertAndHumanizeMillisecondsToDuration(os.uptime()),
+    uptime: unitConverter.convertAndHumanizeSecondsToDuration(os.uptime()),
     starttime: os.starttime,
     currenttime: os.currenttime,
     freemem: os.freemem()

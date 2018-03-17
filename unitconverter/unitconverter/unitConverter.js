@@ -7,14 +7,16 @@ var convertFahrenheitToCelsius = function(temperatureInF){
    return converted;
 }
 
-var convertAndHumanizeMillisecondsToDuration = function (timeInMilliseconds) {
+var convertAndHumanizeSecondsToDuration = function (timeInSeconds) {
 
-    var timeAsDuration = moment.duration(timeInMilliseconds);
+    
+    var timeAsDuration = moment.duration(timeInSeconds, 'seconds');
+
     var asHours = timeAsDuration.hours();
-
     if (asHours <= 9){
         asHours = "0" + asHours;
     }
+
     var asMinutes = timeAsDuration.minutes();
 
     if (asMinutes < 10) {
@@ -26,5 +28,5 @@ var convertAndHumanizeMillisecondsToDuration = function (timeInMilliseconds) {
 }
 
 module.exports.convertFahrenheitToCelsius = convertFahrenheitToCelsius;
-module.exports.convertAndHumanizeMillisecondsToDuration = convertAndHumanizeMillisecondsToDuration;
+module.exports.convertAndHumanizeSecondsToDuration = convertAndHumanizeSecondsToDuration;
 

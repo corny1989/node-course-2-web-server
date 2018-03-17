@@ -11,10 +11,10 @@ describe('unitConverter', function(){
 
     });
 
-    it('should convert a given time in ms to a humanized duration in the format: hh:mm', function(){
-        expect(unitConverter.convertAndHumanizeMillisecondsToDuration(3600000)).to.be.equal("01:00");
-        expect(unitConverter.convertAndHumanizeMillisecondsToDuration(1800000)).to.be.equal("00:30");
-        expect(unitConverter.convertAndHumanizeMillisecondsToDuration(2880000000+1800000)).to.be.equal("08:30");
+    it('should convert a given time in seconds to a humanized duration in the format: hh:mm', function(){
+        expect(unitConverter.convertAndHumanizeSecondsToDuration(3600)).to.be.equal("01:00");
+        expect(unitConverter.convertAndHumanizeSecondsToDuration(1800)).to.be.equal("00:30");
+        expect(unitConverter.convertAndHumanizeSecondsToDuration(30600)).to.be.equal("08:30");
  
     });
 });
