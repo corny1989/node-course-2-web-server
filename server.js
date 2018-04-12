@@ -89,6 +89,24 @@ app.post('/weather/', (req, res) => {
     });
 });
 
+app.get('/timeTracker', (req, res) => {
+
+    res.render('timeTracker');
+
+});
+
+app.post('/timeTracker', (req, res) => {
+
+    var timeEntry = {
+        start: req.body.start,
+        stop: req.body.stop,
+        pause: req.body.pause
+    };
+
+    res.render('timeTracker');
+
+});
+
 app.get('/bad', (req, res) => {
     res.send({
     errorMessage: "Error handling request"
