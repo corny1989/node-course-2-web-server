@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 
 var systeminfo = require('./systeminfo');
 var weather = require('./getweather');
+var timeTracker = require('./timeTracker/timeTracker/timeTracker')
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -91,7 +93,14 @@ app.post('/weather/', (req, res) => {
 
 app.get('/timeTracker', (req, res) => {
 
-    res.render('timeTracker');
+    if (req.body.envnetWorkTime == undefined) {
+        res.render('timeTracker');
+    }
+
+    else {
+        console.log(req.body.netWorkTime);
+        res.render('timeTracker', {netWorkTime: req.body.netWorkTime});
+    }
 
 });
 
@@ -102,8 +111,8 @@ app.post('/timeTracker', (req, res) => {
         stop: req.body.stop,
         pause: req.body.pause
     };
-
-    res.render('timeTracker');
+    var netWorkTime = timeTracker.getNetWorkTime(timeEntry.start, timeEntry.stop, timeEntry.pause);
+    res.render('timeTracker', {netWorkTime: netWorkTime});
 
 });
 
