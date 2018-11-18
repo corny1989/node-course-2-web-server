@@ -9,8 +9,11 @@ var long;
 
 geocode.geocodeAddress(givenAddress, (errorMessage, results) => {
     if (errorMessage){
-        console.log('Error message');
+
+        console.log('Error message: ' + errorMessage);
+
         callback("Error");
+        
     } else {
         
         weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {

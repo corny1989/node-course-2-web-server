@@ -16,6 +16,9 @@ callback('Unable to connect');
 } else if (body.status === 'ZERO_RESULTS'){
 callback('Unable to get address');
 
+} else if (body.status === 'OVER_QUERY_LIMIT'){
+    callback('Call to GeoLocationAPI over QUOTA');
+
 } else if (body.status === 'OK'){
 
 callback(undefined, {
@@ -23,6 +26,8 @@ callback(undefined, {
     latitude: body.results[0].geometry.location.lat,
     longitude: body.results[0].geometry.location.lng
 });
+
+console.log(body);
 
 }
 
